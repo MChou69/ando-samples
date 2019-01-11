@@ -17,4 +17,5 @@
     <string name="action_sign_in_short">Se Connecter</string>
     <string name="title_activity_login">Se Connecter</string>
     <string name="action_settings">Paramètres</string>
+    <string name="rss_add">rss (add)</string>
 </resources>

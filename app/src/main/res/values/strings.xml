@@ -25,6 +25,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="rss_title">Rss (Read)</string>
+    <string name="rss_add">rss (add)</string>
 
     <string-array name="rss_urls">
         <item>Google News [https://news.google.com/rss]</item>
