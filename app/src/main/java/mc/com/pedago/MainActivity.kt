@@ -8,13 +8,19 @@ import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import mc.com.pedago.async.BackgroundTask
+import mc.com.pedago.device.InfosSettingsActivity
 import mc.com.pedago.tools.Tools
+import mc.com.pedago.ws_rss.RssReadActivity
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    internal val REQUEST_GET_SINGLE_FILE = 1 //final
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +41,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         toggle.syncState()
 
         nav_view.setNavigationItemSelectedListener(this)
+
+
     }
 
     override fun onBackPressed() {
@@ -45,7 +53,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
-   /* override fun onCreateOptionsMenu(menu: Menu): Boolean {
+   override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
@@ -59,42 +67,26 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.action_settings -> return true
             else -> return super.onOptionsItemSelected(item)
         }
-    }*/
+    }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera ->  Tools.openActivity(applicationContext, LoginActivity::class.java)
-            R.id.nav_gallery -> Foo.Open( LoginActivity::class.java , this )
-            R.id.nav_slideshow -> {
-
+            R.id.nav_rss -> Tools.openActivity(applicationContext, RssReadActivity::class.java)
+            R.id.nav_gallery -> {
+                Toast.makeText(this,"galery..",Toast.LENGTH_SHORT).show()
+                val intent = Intent(Intent.ACTION_GET_CONTENT)
+                intent.addCategory(Intent.CATEGORY_OPENABLE)
+                intent.type = "image/*"
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), REQUEST_GET_SINGLE_FILE)
             }
-            R.id.nav_manage -> {
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
-            }
+            R.id.nav_slideshow -> Toast.makeText(this,"slide..",Toast.LENGTH_SHORT).show()
+            R.id.nav_manage -> Tools.openActivity(applicationContext, InfosSettingsActivity::class.java)
+            R.id.nav_share -> Toast.makeText(this,"share..",Toast.LENGTH_SHORT).show()
+            R.id.nav_send -> Toast.makeText(this,"send..",Toast.LENGTH_SHORT).show()
         }
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
 
-    class Foo {
-        companion object {
-            fun Open(activityClass:Class<*>, context:Context) {
-                val i = Intent(context, activityClass)
-                context.startActivity(i)
-            }
-        }
-    }
-
-/*    private fun OpenActivity(activityClass: Class<*>, context: Context) {
-        val i = Intent(context, activityClass)
-        startActivity(i)
-    }*/
 }

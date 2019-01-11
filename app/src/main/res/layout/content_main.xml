@@ -7,11 +7,13 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/app_bar_main"
-        tools:context=".MainActivity" android:background="@color/colorPrimary">
+        tools:context=".MainActivity" android:background="@android:color/background_dark">
 
     <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="222dp" app:srcCompat="@drawable/background_draw_ando"
-            tools:layout_editor_absoluteY="144dp" tools:layout_editor_absoluteX="0dp" android:id="@+id/imageView2"
-            tools:srcCompat="@drawable/background_draw_ando"/>
+            android:layout_width="0dp"
+            android:layout_height="138dp" app:srcCompat="@drawable/background_draw_ando"
+            android:id="@+id/logo"
+            tools:srcCompat="@drawable/background_draw_ando" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintLeft_toLeftOf="parent"
+            android:contentDescription="@string/app_name"/>
 </android.support.constraint.ConstraintLayout>

@@ -18,4 +18,17 @@
     <string name="nav_header_title">MC. Samples</string>
     <string name="app_name">McSamples</string>
     <string name="img_content_desc">img desc</string>
+    <string name="tab_info_text">Infos</string>
+    <string name="tab_settings_text">Settings</string>
+    <string name="title_activity_tests">Tests</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="rss_title">Rss (Read)</string>
+
+    <string-array name="rss_urls">
+        <item>Google News [https://news.google.com/rss]</item>
+        <item>Le Monde [https://www.lemonde.fr/rss/une.xml]</item>
+        <item>Courrier International [https://www.courrierinternational.com/feed/category/6260/rss.xml]</item>
+    </string-array>
 </resources>

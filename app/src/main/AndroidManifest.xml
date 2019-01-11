@@ -6,6 +6,9 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
     <uses-permission android:name="android.permission.READ_PROFILE"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
             android:allowBackup="true"
@@ -27,6 +30,14 @@
         <activity
                 android:name=".LoginActivity"
                 android:label="@string/title_activity_login">
+        </activity>
+        <activity android:name=".device.InfosSettingsActivity">
+        </activity>
+        <activity
+                android:name=".device.TestsActivity"
+                android:label="@string/title_activity_tests">
+        </activity>
+        <activity android:name=".ws_rss.RssReadActivity">
         </activity>
     </application>
 

@@ -3,4 +3,18 @@
     <string name="app_name">Exemple(MC.)</string>
     <string name="nav_header_title">Exemples(MC.)</string>
     <string name="img_content_desc">img desc</string>
+    <string name="tab_info_text">Infos</string>
+    <string name="tab_settings_text">Paramètres</string>
+    <string name="rss_title">Rss (Lire)</string>
+    <string name="error_invalid_email">Adresse mail non valide</string>
+    <string name="error_invalid_password">Mot de passe trop court</string>
+    <string name="error_incorrect_password">Mot de passe incorrect</string>
+    <string name="title_home">Accueil</string>
+    <string name="title_dashboard">Tableau de Bord</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Mot de Passe</string>
+    <string name="action_sign_in">Se Connecter S\'enregistrer</string>
+    <string name="action_sign_in_short">Se Connecter</string>
+    <string name="title_activity_login">Se Connecter</string>
+    <string name="action_settings">Paramètres</string>
 </resources>
