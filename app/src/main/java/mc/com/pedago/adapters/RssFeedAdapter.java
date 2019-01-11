@@ -7,10 +7,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import mc.com.pedago.R;
+import mc.com.pedago.async.ImageFromUrlTask;
 import mc.com.pedago.async.RssModel;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class RssFeedAdapter extends RecyclerView.Adapter<RssFeedAdapter.FeedModelViewHolder> {
@@ -42,12 +45,17 @@ public class RssFeedAdapter extends RecyclerView.Adapter<RssFeedAdapter.FeedMode
         final RssModel item = items.get(position);
         ((TextView)holder.rssFeedView.findViewById(R.id.rssItemTitle)).setText(item.title);
         ((TextView)holder.rssFeedView.findViewById(R.id.rssItemDesc)).setText(item.description);
-        ((TextView)holder.rssFeedView.findViewById(R.id.rssItemDate)).setText(""+item.date);
+        ((TextView)holder.rssFeedView.findViewById(R.id.rssItemDate)).setText(new SimpleDateFormat("dd-MM-yy h:m").format(item.date));
 
         TextView link=holder.rssFeedView.findViewById(R.id.rssItemLink);
         link.setMovementMethod(LinkMovementMethod.getInstance());
         link.setText(Html.fromHtml("<a href=\""+ item.link +"\"> Read..</a>"));
 
+        if(!item.image.isEmpty()){
+            Log.i("async", "onBindViewHolder: Image : "+item.image);
+            ImageView  img = (ImageView)holder.rssFeedView.findViewById(R.id.rssItemImage);
+            new ImageFromUrlTask(img).execute(item.image);
+        }
         /*TextView link = holder.rssFeedView.findViewById(R.id.rssItemLink);
         SpannableString ss = new SpannableString("Read more..");
         //ss.setSpan(new StyleSpan(Typeface.BOLD), 0, 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

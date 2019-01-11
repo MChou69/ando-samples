@@ -24,7 +24,7 @@ public class RssReadActivity extends AppCompatActivity implements IRssConsumer {
     protected void onCreate(Bundle savedInstanceState) {
        super.onCreate(savedInstanceState);
        setContentView(R.layout.activity_rss_layout);
-       setTitle("Flux Rss");
+       setTitle("Flux Rss (News)");
 
        Button read=findViewById(R.id.btnReadRss);
        read.setOnClickListener(new View.OnClickListener() {
